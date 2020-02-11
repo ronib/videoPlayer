@@ -19,16 +19,24 @@ export class AppComponent {
 
   ngOnInit() {
     this.route.queryParamMap
-      .pipe(skip(1)) // skip the first empty map
       .subscribe(
         queryParams => {
+
         this.videoId = queryParams.get("id");
-        this.apiService.getTranscript(this.videoId).subscribe(
-          result => {
-            this.transcript = result.sort((a, b) => (a.time > b.time) ? 1 : -1);
-          },
-          error => {console.log(error); this.error = 'wrong id';});
-    })
+        if (this.videoId) {
+          this.error = "";
+          this.apiService.getTranscript(this.videoId).subscribe(
+            result => {
+              this.transcript = result.sort((a, b) => (a.time > b.time) ? 1 : -1);
+            },
+            error => this.error = 'wrong id');
+        } else {
+          this.error = "missing id parameter";
+        }
+        
+    });
+
+
     
   }
 }

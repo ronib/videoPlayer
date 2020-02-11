@@ -17,15 +17,12 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = "Moment from meeting with Two Pillars";
-    
-    
+   
   }
 
   ngOnChanges() {
 
-    this.error = (!this.id) ? "missing id parameter" : null;
-    this.videoSource = `${environment.apiUrl}${this.id}.mp4`
-
+    this.videoSource =  this.id ? `${environment.apiUrl}${this.id}.mp4` : '';
     
   }
 
