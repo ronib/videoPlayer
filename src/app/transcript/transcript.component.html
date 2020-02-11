@@ -1,0 +1,12 @@
+<div *ngFor="let talk of transcript" class="talk-container">
+    <span class="icon" 
+        [ngClass]="{
+            'speaker-cust': talk.speaker === 'Cust',
+            'speaker-rep': talk.speaker === 'Rep'
+        }" >
+    </span>
+    <span class="talk">
+        {{talk.snippet}} - {{talk.speaker}}
+    </span>
+    
+</div>

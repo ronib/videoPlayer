@@ -1,0 +1,31 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 16px);
+    flex-direction: column;
+    background-color: #F5F5F5;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+}
+
+.video-container {
+    margin: auto;
+    display: block;
+    width: 824px;
+    height: 521px;
+    border-color: #D7DADE;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    flex: 1;
+    margin: auto;
+    display: table;
+}
