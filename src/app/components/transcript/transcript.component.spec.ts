@@ -22,4 +22,11 @@ describe('TranscriptComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should merge empty talks', () => {
+    const emptyResult = component.mergeTalks();
+
+    expect(emptyResult.length).toEqual(0);
+  });
+
 });

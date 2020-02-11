@@ -7,23 +7,17 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  title: string;
-  videoSource: string;
   @Input() id: string;
-  error: string;
-
-  constructor() { 
-  }
+  title: string = '';
+  videoSource: string;
 
   ngOnInit(): void {
-    this.title = "Moment from meeting with Two Pillars";
+    this.title = 'Moment from meeting with Two Pillars';
    
   }
 
   ngOnChanges() {
-
     this.videoSource =  this.id ? `${environment.apiUrl}${this.id}.mp4` : '';
-    
   }
 
 }

@@ -22,4 +22,9 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the logo', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('div>img').src).toContain('chorus-logo');
+  }));
 });

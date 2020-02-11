@@ -22,4 +22,12 @@ describe('PlayerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have as title 'Moment from meeting with Two Pillars'`, () => {
+    const fixture = TestBed.createComponent(PlayerComponent);
+    const app = fixture.componentInstance;
+    app.ngOnInit();
+    expect(app.title).toEqual('Moment from meeting with Two Pillars');
+  });
+
 });

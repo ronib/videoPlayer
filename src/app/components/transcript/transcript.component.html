@@ -1,0 +1,12 @@
+<div *ngFor="let talk of displayTranscript" class="talk-container">
+    <span class="icon" 
+        [ngClass]="{
+            'speaker-cust': talk.speaker.toLowerCase() === 'cust',
+            'speaker-rep':  talk.speaker.toLowerCase() === 'rep'
+        }" >
+    </span>
+    <span class="talk">
+        {{talk.snippet}}
+    </span>
+    
+</div>
