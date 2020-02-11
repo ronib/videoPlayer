@@ -1,8 +1,9 @@
 <div>
     <h1 class="title"> {{title}}</h1>
+    <span *ngIf="error" class="error"> {{error}} </span>
     <video controls="controls" 
         class="video" 
         x-webkit-airplay="allow" 
         data-youtube-id="N9oxmRT2YWw" 
-        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
+        src="{{videoSource}}"></video>
 </div>

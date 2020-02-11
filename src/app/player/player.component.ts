@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../api.service';
-import { skip } from 'rxjs/operators';
+import { Component, OnInit, Input } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-player',
@@ -9,18 +7,26 @@ import { skip } from 'rxjs/operators';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  title;
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+  title: string;
+  videoSource: string;
+  @Input() id: string;
+  error: string;
+
+  constructor() { 
+  }
 
   ngOnInit(): void {
     this.title = "Moment from meeting with Two Pillars";
-    this.route.queryParamMap
-      .pipe(skip(1)) // skip the first empty map
-      .subscribe(queryParams => {
-        let id = queryParams.get("id")
-        this.apiService.getData(id).subscribe(result => console.log(result));
-    })
-// handle error
+    
+    
+  }
+
+  ngOnChanges() {
+
+    this.error = (!this.id) ? "missing id parameter" : null;
+    this.videoSource = `${environment.apiUrl}${this.id}.mp4`
+
+    
   }
 
 }

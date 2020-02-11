@@ -1,7 +1,9 @@
 <div class="content">
+  
   <div class="video-container"> 
-    <app-player></app-player>
-    <app-transcript></app-transcript>
+    <span *ngIf="error" class="error"> {{error}} </span>
+    <app-player [id]="videoId"></app-player>
+    <app-transcript [transcript]="transcript"></app-transcript>
   </div>
   <app-footer class="footer"></app-footer>
 </div>
